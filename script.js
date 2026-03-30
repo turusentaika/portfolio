@@ -60,4 +60,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }, observerOptions);
 
     sections.forEach(section => observer.observe(section));
+
+
+
+    // --- 4. KURSORIA SEURAAVA PALLO ---
+    const follower = document.querySelector('.cursor-follower');
+
+    // Tarkistetaan, onko laitteessa hiiri (ei ajeta mobiililla)
+    if (matchMedia('(pointer: fine)').matches) {
+        
+        // Päivitetään pallon sijainti hiiren mukaan
+        window.addEventListener('mousemove', (e) => {
+            // Käytetään requestAnimationFramea suorituskyvyn parantamiseksi
+            requestAnimationFrame(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            });
+        });
+
+        // Lisätään suurenne-efekti, kun hiiri on linkkien päällä
+        const hoverTargets = document.querySelectorAll('a, button, .project-card, .scroll-down-container, .footer-link');
+        
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                follower.classList.add('cursor-hover');
+            });
+            target.addEventListener('mouseleave', () => {
+                follower.classList.remove('cursor-hover');
+            });
+        });
+
+    } else {
+        // Jos on kosketusnäyttö, piilotetaan pallo kokonaan
+        follower.style.display = 'none';
+    }
 });
+

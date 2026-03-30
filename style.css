@@ -1,9 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
 /* Perusasetukset */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
     scroll-behavior: smooth; /* Tekee skrollauksesta pehmeän */
+    scroll-padding-top: 70px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Navigointipalkki */
@@ -76,7 +83,10 @@ body {
     align-items: center;
     text-align: center;
     scroll-snap-align: start; /* Mihin kohtaan sivu "pysähtyy" */
-    padding: 20px;
+
+    position: relative;
+    margin: 0;
+    
 }
 
 /* Osioiden erottaminen väreillä */
@@ -131,7 +141,7 @@ body {
 /* --- Skrollausindikaattorin säiliö --- */
 .scroll-down-container {
     position: absolute;
-    bottom: 100px; /* Etäisyys pohjasta */
+    bottom: 90px; /* Etäisyys pohjasta */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -159,7 +169,7 @@ body {
 
 /* Hiiren rulla (pallo) */
 .wheel {
-    width: 6px;
+    width: 5px;
     height: 6px;
     background-color: white;
     border-radius: 50%;
@@ -178,24 +188,29 @@ body {
     align-items: center;
     /* Nuolen nykimis-animaatio */
     animation: arrowNudge 1.6s infinite ease-in-out;
+    height: 13px;
+    margin-top: 6px;
 }
 
 .arrow-line {
     display: block;
-    width: 12px;
+    width: 14px;
     height: 2px;
     background-color: white;
     /* Luodaan nuolen kärki kääntämällä viivoja */
-    margin-top: -4px; /* Tuodaan viivat lähemmäs toisiaan */
+    margin-top: -3px; /* Tuodaan viivat lähemmäs toisiaan */
+    position: absolute;
 }
 
 .arrow-line:first-child {
     transform: rotate(45deg);
+    right: -3px;
 }
 
 .arrow-line:last-child {
     transform: rotate(-45deg);
-    margin-top: -2px; /* Hienosäätö kärjen sulkemiseen */
+    
+    left: -3px;
 }
 
 
@@ -220,11 +235,111 @@ body {
 /* Nuolen kärki nykii alas ja ylös */
 @keyframes arrowNudge {
     0%, 100% {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 0.5;
     }
     50% {
-        transform: translateY(8px); /* Nyitään alaspäin */
+        transform: translateY(8px) scale(1.1); /* Nyitään alaspäin */
         opacity: 1;
     }
+}
+
+
+/* 1. Piilotetaan oletuskursori kaikkialta */
+html, body, a, button {
+    cursor: none !important;
+}
+
+/* 2. Luodaan pallo */
+.cursor-follower {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(97, 218, 251, 0.5); /* Läpikuultava sininen */
+    border-radius: 50%;
+    position: fixed; /* Pysyy näytöllä skrollatessa */
+    pointer-events: none; /* Hiiri "menee läpi", ei häiritse klikkausta */
+    z-index: 9999; /* Kaiken muun päällä */
+    
+    /* Asetetaan pallo keskelle kursorin kärkeä */
+    transform: translate(-50%, -50%);
+    
+    /* Lisätään hieno väriefekti taustan mukaan (valinnainen, mutta suositeltu) */
+    mix-blend-mode: difference; 
+    
+    /* Pehmeä siirtymä koon muutokselle (hovereita varten) */
+    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+/* 3. Tyyli, kun hiiri on linkin päällä (JS lisää tämän luokan) */
+.cursor-follower.cursor-hover {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(97, 218, 251, 0.2); /* Vielä läpikuultavampi */
+    border: 2px solid #61dafb;
+}
+
+.main-footer {
+    background-color: #1a1c22; /* Hieman tummempi kuin etusivu */
+    color: white;
+    padding: 60px 20px 30px 20px;
+    text-align: center;
+    scroll-snap-align: end; /* Lukittuu näytön alareunaan */
+    width: 100%;
+}
+
+.footer-content h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #61dafb; /* Portfolion korostusväri */
+}
+
+.footer-content p {
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* Sosiaalisen median linkit */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* Hieno alleviivausanimaatio linkeille */
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #61dafb;
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #61dafb;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+/* Alareunan copyright-teksti */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.5;
 }
