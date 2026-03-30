@@ -6,6 +6,62 @@ body, html {
     scroll-behavior: smooth; /* Tekee skrollauksesta pehmeän */
 }
 
+/* Navigointipalkki */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(40, 44, 52, 0.9); /* Hieman läpinäkyvä */
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    opacity: 0.7;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #61dafb; /* Korostusväri */
+    opacity: 1;
+}
+
+
+/*Otsikon letter slpit*/
+.ml11 {
+    font-weight: 700;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .ml11 .letter {
+    display: inline-block;
+    line-height: 1em;
+    opacity: 0; /*Aluksi piilossa, Anime.js hoitaa loput*/
+  }
+  .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+    overflow: hidden; /* Kirjaimet liukuvat "sisään" rajan takaa */
+  }
+
+
 /* Snap-ominaisuus: Lukitsee skrollauksen osioihin */
 body {
     scroll-snap-type: y mandatory;
@@ -51,4 +107,124 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Fade In Efekti*/
+/* Alunperin näkymätön ja hieman alempana */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    visibility: hidden;
+}
+
+/* Luokka, jonka JS lisää, kun osio on näkyvissä */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+
+
+/*SKROLLAA ALASPÄIN*/
+/* --- Skrollausindikaattorin säiliö --- */
+.scroll-down-container {
+    position: absolute;
+    bottom: 100px; /* Etäisyys pohjasta */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.scroll-down-container:hover {
+    opacity: 1;
+}
+
+/* --- Hiiri-ikoni --- */
+.mouse-icon {
+    width: 26px;
+    height: 44px;
+    border: 2px solid white;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+/* Hiiren rulla (pallo) */
+.wheel {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Rullan animaatio */
+    animation: scrollWheel 1.6s infinite ease-out;
+}
+
+/* --- Nuolen kärki --- */
+.arrow-capsule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Nuolen nykimis-animaatio */
+    animation: arrowNudge 1.6s infinite ease-in-out;
+}
+
+.arrow-line {
+    display: block;
+    width: 12px;
+    height: 2px;
+    background-color: white;
+    /* Luodaan nuolen kärki kääntämällä viivoja */
+    margin-top: -4px; /* Tuodaan viivat lähemmäs toisiaan */
+}
+
+.arrow-line:first-child {
+    transform: rotate(45deg);
+}
+
+.arrow-line:last-child {
+    transform: rotate(-45deg);
+    margin-top: -2px; /* Hienosäätö kärjen sulkemiseen */
+}
+
+
+/* --- ANIMAATIOT (Keyframes) --- */
+
+/* Hiiren rulla liikkuu alas ja häviää */
+@keyframes scrollWheel {
+    0% {
+        top: 8px;
+        opacity: 1;
+    }
+    70% {
+        top: 22px;
+        opacity: 0;
+    }
+    100% {
+        top: 8px;
+        opacity: 0;
+    }
+}
+
+/* Nuolen kärki nykii alas ja ylös */
+@keyframes arrowNudge {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(8px); /* Nyitään alaspäin */
+        opacity: 1;
+    }
 }

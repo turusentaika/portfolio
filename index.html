@@ -3,23 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Oma Nimi</title>
+    <title>Portfolio | Taika Turunen</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<header>
+    <nav class="navbar">
+    <ul>
+        <li><a href="#home" class="nav-link active">// home</a></li>
+        <li><a href="#projects" class="nav-link">// projects</a></li>
+        <li><a href="#experience" class="nav-link">// experience</a></li>
+    </ul>
+</nav>
+</header>
 <body>
 
-    <section id="home" class="full-page">
+    <section id="home" class="full-page fade-in-section">
         <div class="content">
-            <img src="profiilikuva.jpg" alt="Minä" class="profile-pic">
-            <h1>Hei, olen [Nimesi]</h1>
-            <p>Full-stack kehittäjä & intohimoinen koodari.</p>
-            <div class="scroll-indicator">Skrollaa alas ↓</div>
+            <img src="profiilikuva.jpg" alt="Minä" class="profile-pic fade-in-section">
+            
+            <h1 class="fade-in-section ml11">
+                <span class="text-wrapper">
+                    <span class="letters">Hei, olen [Nimesi]</span>
+            </h1>
+            <p class="fade-in-section">Full-stack kehittäjä & intohimoinen koodari.</p>
         </div>
+
+        <a href="#projects" class="scroll-down-container" aria-label="Skrollaa alas projekteihin">
+            <div class="mouse-icon">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow-capsule">
+                <span class="arrow-line"></span>
+                <span class="arrow-line"></span>
+            </div>
+        </a>
     </section>
 
-    <section id="projects" class="full-page">
+    <section id="projects" class="full-page fade-in-section">
         <h2>Projektini</h2>
-        <div class="project-grid">
+        <div class="project-grid fade-in-section">
             <div class="project-card">
                 <h3>Projekti 1</h3>
                 <p>Node.js sovellus...</p>
@@ -31,10 +53,11 @@
         </div>
     </section>
 
-    <section id="about" class="full-page">
+    <section id="experience" class="full-page fade-in-section">
         <h2>Tietoa minusta</h2>
         <p>Tähän voit kirjoittaa tarkemmin osaamisestasi ja historiastasi.</p>
     </section>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
