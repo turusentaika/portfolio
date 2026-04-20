@@ -19,18 +19,33 @@ document.addEventListener("DOMContentLoaded", () => {
           });
     }
 
-    // --- 2. PEHMEÄ SKROLLAUS ---
+    // --- 2. PEHMEÄ SKROLLAUS (Anime.js) ---
     const scrollLinks = document.querySelectorAll('.nav-link, .scroll-down-container');
+
     scrollLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+
+        // Varmistetaan, että href alkaa #-merkillä (on sisäinen linkki)
+        if (href && href.startsWith('#')) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            
+            const targetSection = document.querySelector(href);
+            
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Lasketaan kohteen sijainti sivun yläreunasta
+                const targetPosition = targetSection.offsetTop;
+
+                anime({
+                    targets: ['html', 'body'],
+                    scrollTop: targetPosition,
+                    duration: 1000,     // Kesto millisekunteina
+                    easing: 'easeInOutExpo' // Tyylikäs hidastuvuus
+                });
             }
-        });
+        }
     });
+});
 
     // --- 3. INTERSECTION OBSERVER (Fade-in & Navigaatio) ---
     const sections = document.querySelectorAll('.full-page, .fade-in-section');
