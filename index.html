@@ -3,87 +3,581 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Taika Turunen</title>
+
+    <meta name="description" content="[NIMI] – ohjelmistokehityksen opiskelija ja kyberturvallisuudesta kiinnostunut kehittäjä.">
+    <meta name="author" content="[NIMI]">
+
+    <title>TAIKA TURUNEN // Portfolio</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 </head>
-<header>
-    <nav class="navbar">
-    <ul>
-        <li><a href="#home" class="nav-link active">// home</a></li>
-        <li><a href="#projects" class="nav-link">// projects</a></li>
-        <li><a href="#experience" class="nav-link">// experience</a></li>
-    </ul>
-</nav>
-</header>
+
 <body>
-    <div class="cursor-follower"></div>
 
-    <section id="home" class="full-page fade-in-section">
-        <div class="content">
-            <img src="profiilikuva.jpg" alt="Minä" class="profile-pic fade-in-section">
-            
-            <h1 class="fade-in-section ml11">
-                <span class="text-wrapper">
-                    <span class="letters">Taika Turunen</span>
-            </h1>
-            <p class="fade-in-section">Junior software developer, cybersecurity enthusiastic.</p>
-        </div>
-
-        <a href="#projects" class="scroll-down-container" aria-label="Skrollaa alas projekteihin">
-            <div class="mouse-icon">
-                <div class="wheel"></div>
-            </div>
-            <div class="arrow-capsule">
-                <span class="arrow-line"></span>
-                <span class="arrow-line"></span>
-            </div>
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="accent">&lt;</span>[TAIKA TURUNEN]<span class="accent">/&gt;</span>
         </a>
-    </section>
 
-    <section id="projects" class="full-page fade-in-section">
-        <h2>My projects</h2>
-        <div class="project-grid fade-in-section">
-            <div class="project-card">
-                <h3>Projekti 1</h3>
-                <p>Node.js sovellus...</p>
+        <nav>
+            <a href="#about">01 // about</a>
+            <a href="#skills">02 // skills</a>
+            <a href="#projects">03 // projects</a>
+            <a href="#contact">04 // contact</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             HERO
+        ========================== -->
+        <section id="home" class="hero">
+
+            <div class="hero-grid"></div>
+
+            <div class="hero-content">
+
+                <div class="terminal-label">
+                    <span class="green">●</span>
+                    SYSTEM ONLINE
+                </div>
+
+                <p class="hero-kicker">
+                    // SOFTWARE DEVELOPMENT · CYBERSECURITY · RED TEAM
+                </p>
+
+                <h1>
+                    [TAIKA]
+                    <span>[TURUNEN]</span>
+                </h1>
+
+                <div class="terminal-line">
+                    <span class="prompt">visitor@portfolio:~$</span>
+                    <span class="command">whoami</span>
+                    <span class="cursor"></span>
+                </div>
+
+                <p class="hero-description">
+                    Second-year Software Development student with three years of independently acquired, 
+                    self-taught experience in red teaming, penetration testing, and cybersecurity, 
+                    continuously developing my skills in the field.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary">
+                        ./view_projects
+                    </a>
+
+                    <a href="#contact" class="btn">
+                        ./contact_me
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>02</strong>
+                        <span>YEAR<br>STUDYING</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>03+</strong>
+                        <span>YEARS<br>CYBER</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>08+</strong>
+                        <span>CODE<br>PROJECTS</span>
+                    </div>
+                </div>
+
             </div>
-            <div class="project-card">
-                <h3>Projekti 2</h3>
-                <p>React-verkkosivu...</p>
+
+            <!-- Profile image -->
+            <div class="hero-image-wrapper">
+                <div class="image-frame">
+                    <div class="image-corner top-left"></div>
+                    <div class="image-corner top-right"></div>
+                    <div class="image-corner bottom-left"></div>
+                    <div class="image-corner bottom-right"></div>
+
+                    <!-- Vaihda assets/profile.jpg omaan kuvaasi -->
+                    <img
+                        src="assets/profile.jpg"
+                        alt="[TAIKA TURUNEN] – profiilikuva"
+                        class="profile-image"
+                    >
+                </div>
+
+                <div class="image-label">
+                    <span>// PROFILE.JPG</span>
+                    <span class="green">[ONLINE]</span>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Projekti 1</h3>
-                <p>Node.js sovellus...</p>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+        <section id="about" class="section">
+
+            <div class="section-heading">
+                <span>01 //</span>
+                <h2>ABOUT_ME</h2>
+                <div class="line"></div>
             </div>
-            <div class="project-card">
-                <h3>Projekti 1</h3>
-                <p>Node.js sovellus...</p>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <p>
+                        Hi! I'm <span class="cyan">Taika</span>,
+                        a second-year Software Development student.
+                        Alongside my studies, I have independently developed
+                        my skills in cybersecurity and offensive security.
+                    </p>
+                    
+                    <p>
+                        I have around <span class="red">three years</span> of
+                        self-taught experience exploring red team methodologies,
+                        penetration testing, vulnerability discovery, and
+                        understanding how systems work from an attacker's perspective.
+                    </p>
+                    
+                    <p>
+                        In software development, I am particularly interested in
+                        how applications can be built
+                        <span class="cyan">efficiently, securely,
+                        and maintainably</span>.
+                        Cybersecurity gives me another perspective on the same
+                        problem: understanding how systems can be broken,
+                        identifying their weaknesses, and figuring out
+                        how those weaknesses can be addressed.
+                    </p>
+
+                    <p>
+                        Outside of my studies and cybersecurity, I also have a
+                        side interest in <span class="cyan">animation and
+                        creating visual experiences through code</span>.
+                        I enjoy experimenting with JavaScript and WebGL to create
+                        interactive graphics, animations, and other visual projects.
+                    </p>
+                    
+
+                </div>
+
+
+                <div class="identity-card">
+
+                    <div class="card-header">
+                        // IDENTITY.JSON
+                    </div>
+
+                    <div class="info-row">
+                        <span class="key">"run_time"</span>
+                        <span class="value">"22 years"</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="key">"role"</span>
+                        <span class="value">"Software Developer Student"</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="key">"study_year"</span>
+                        <span class="value">"2"</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="key">"cyber_experience"</span>
+                        <span class="value">"3+ years"</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="key">"focus"</span>
+                        <span class="value">"Development + Red Teaming"</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="key">"location"</span>
+                        <span class="value">"Tampere, Finland"</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="key">"status"</span>
+                        <span class="value green">"OPEN_TO_OPPORTUNITIES"</span>
+                    </div>
+
+                </div>
+
             </div>
+
+        </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+        <section id="skills" class="section">
+
+            <div class="section-heading">
+                <span>02 //</span>
+                <h2>SKILLS</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-number">01</div>
+                    <h3>// DEVELOPMENT</h3>
+
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>C#</span>
+                        <span>Java</span>
+                        <span>PHP</span>
+                        <span>SQL</span>
+                        <span>Node.js</span>
+                    </div>
+                </div>
+
+
+                <div class="skill-card">
+                    <div class="skill-number">02</div>
+                    <h3>// CYBERSECURITY</h3>
+
+                    <div class="tags red-tags">
+                        <span>Vulnerability Analysis</span>
+                        <span>Enumeration</span>
+                        <span>Exploitation</span>
+                        <span>Priv Esc</span>
+                        <span>Web Security</span>
+                        <span>Network Security</span>
+                        <span>Cryptography</span>
+                    </div>
+                </div>
+
+
+                <div class="skill-card">
+                    <div class="skill-number">03</div>
+                    <h3>// ENVIRONMENT</h3>
+
+                    <div class="tags yellow-tags">
+                        <span>Linux</span>
+                        <span>Windows</span>
+                        <span>Vim</span>
+                        <span>Git</span>
+                        <span>GitHub</span>
+                        <span>Shell/Bash</span>
+                        <span>Nmap</span>
+                        <span>Burp Suite</span>
+                        <span>GoBuster</span>
+                        <span>Metasploit</span>
+                        <span>netcat</span>
+                        <span>Hydra</span>
+                        <span>John The Ripper</span>
+                        <span>Linpeas</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+        <section id="projects" class="section">
+
+            <div class="section-heading">
+                <span>03 //</span>
+                <h2>SELECTED PROJECTS</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- PROJECT 01 -->
+                <article class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-id">// PROJECT_01</span>
+                        <span class="project-status">COMPLETE</span>
+                    </div>
+
+                    <h3>[JavaScript Heart]</h3>
+
+                    <p class="project-description">
+                        An animated static website built with JavaScript, 
+                        where the user must enter the correct password to decrypt a message.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>Vite</span>
+                    </div>
+
+                    <div class="project-footer">
+                        <a href="https://turusentaika.github.io/Heart/" target="_blank" rel="noopener">
+                            &lt;/&gt; GitHub
+                        </a>
+
+                        <span class="project-type">
+                            ANIMATION
+                        </span>
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 02 -->
+                <article class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-id">// PROJECT_02</span>
+                        <span class="project-status">COMPLETE</span>
+                    </div>
+
+                    <h3>[PROJECT 02]</h3>
+
+                    <p class="project-subtitle">
+                        [Project subtitle]
+                    </p>
+
+                    <p class="project-description">
+                        [Project description]
+                    </p>
+
+                    <div class="project-tech">
+                        <span>[LANGUAGE]</span>
+                        <span>[LANGUAGE]</span>
+                        <span>[FRAMEWORK / LIBRARY]</span>
+                    </div>
+
+                    <div class="project-footer">
+                        <a href="#" target="_blank" rel="noopener">
+                            &lt;/&gt; GitHub
+                        </a>
+
+                        <span class="project-type">
+                            DEVELOPMENT
+                        </span>
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 03 -->
+                <article class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-id">// PROJECT_03</span>
+                        <span class="project-status">COMPLETE</span>
+                    </div>
+
+                    <h3>[Path Of Light]</h3>
+
+                    <p class="project-description">
+                        A 3D Unity game built in C#, where a wizard explores forest-themed 
+                        labyrinths, solving their way through the maze to find hidden portals.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>C#</span>
+                        <span>WebGL</span>
+                        <span>Unity</span>
+                    </div>
+
+                    <div class="project-footer">
+                        <a href="https://turusentaika.itch.io/path-of-light" target="_blank" rel="noopener">
+                            &lt;/&gt; Itch.io
+                        </a>
+
+                        <span class="project-type">
+                            GAME DEVELOPMENT
+                        </span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+        <section id="contact" class="section contact-section">
+
+            <div class="section-heading">
+                <span>04 //</span>
+                <h2>CONTACT</h2>
+                <div class="line"></div>
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-copy">
+
+                    <span class="terminal-label">
+                        // CONNECTION_REQUEST
+                    </span>
+
+                    <h2>
+                        Let's build<br>
+                        <span>something.</span>
+                    </h2>
+
+                    <p>
+                        If you're looking for a software development student with a 
+                        strong interest in cybersecurity, feel free to get in touch.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <a href="mailto:taika.turunen@gmail.com">
+                            <span class="contact-icon">@</span>
+                            <div>
+                                <small>EMAIL</small>
+                                <strong>[taika.turunen@gmail.com]</strong>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/turusentaika" target="_blank" rel="noopener">
+                            <span class="contact-icon">&lt;/&gt;</span>
+                            <div>
+                                <small>GITHUB</small>
+                                <strong>[turusentaika]</strong>
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/taika-turunen/" target="_blank" rel="noopener">
+                            <span class="contact-icon">in</span>
+                            <div>
+                                <small>LINKEDIN</small>
+                                <strong>[Taika Turunen]</strong>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Terminal -->
+                <div class="terminal">
+
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+
+                        <span>visitor@portfolio:~</span>
+                    </div>
+
+                    <div class="terminal-body">
+
+                        <p>
+                            <span class="terminal-prompt">
+                                visitor@portfolio:~$
+                            </span>
+                            stats
+                        </p>
+
+                        <p class="output">
+                            [+] Curiosity       ██████████ 100%
+                            <br>
+
+                            [+] Problem solving █████████░  90%
+                            <br>
+
+                            [+] Small talk      ████░░░░░░  40%
+                            <br>
+
+                            [+] Debugging       ██████████ 100%
+                            <br>
+
+                            [+] Sleep schedule  ████████░░  80%
+ 
+                        </p>
+
+                        <p>
+                            <span class="terminal-prompt">
+                                visitor@portfolio:~$
+                            </span>
+                            ls ~/languages
+                        </p>
+
+                        <p class="output">
+                            English, Finnish
+                        </p>
+
+                        <p>
+                            <span class="terminal-prompt">
+                                visitor@portfolio:~$
+                            </span>
+                            cat status.txt
+                        </p>
+
+                        <p class="output green">
+                            ● OPEN_TO_OPPORTUNITIES
+                        </p>
+
+                        <p>
+                            <span class="terminal-prompt">
+                                visitor@portfolio:~$
+                            </span>
+                            <span class="terminal-cursor"></span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <div class="footer-logo">
+            <span class="accent">&lt;</span>[TAIKA TURUNEN]<span class="accent">/&gt;</span>
         </div>
-    </section>
 
-    <section id="experience" class="full-page fade-in-section">
-        <h2>Experience</h2>
-        <p>Tähän voit kirjoittaa tarkemmin osaamisestasi ja historiastasi.</p>
-    </section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-<script src="script.js"></script>
+        <p class="copyright">
+            © 2026 All rights reserved.
+        </p>
 
-<footer class="main-footer">
-    <div class="footer-content fade-in-section">
-        <h3>Contact me</h3>
-        <p>Etsitkö tekijää projektillesi? Laita viestiä!</p>
-        
-        <div class="social-links">
-            <a href="mailto:taika.turunen@example.com" class="footer-link">Sähköposti</a>
-            <a href="https://github.com/" target="_blank" class="footer-link">GitHub</a>
-            <a href="https://linkedin.com/" target="_blank" class="footer-link">LinkedIn</a>
-        </div>
+        <span class="footer-status">
+            [ SYSTEM_EXIT: 0 ]
+        </span>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Taika Turunen | Rakennettu Node.js:llä & Anime.js:llä</p>
-        </div>
-    </div>
-</footer>
+    </footer>
+
 </body>
 </html>
